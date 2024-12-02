@@ -1,21 +1,13 @@
 <?php
-declare(strict_types=1);
-/**
- * Меняет местами значения двух переменных, переданных по ссылке.
- * @param mixed &$a Первая переменная.
- * @param mixed &$b Вторая переменная.
- * @return void
- */
-function swap(&$a, &$b): void {
-    $temp = $a; // Сохраняем значение $a во временной переменной
-    $a = $b;    // Присваиваем $a значение $b
-    $b = $temp; // Присваиваем $b значение временной переменной
+function swap(&$a, &$b){
+    $temp = $a;
+    $a = $b;
+    $b = $temp;
 }
-// Пример использования:
 $a = 5;
 $b = 8;
-
 swap($a, $b);
-echo '5 === $b: ', (5 === $b) ? 'true' : 'false'; 
+echo '5 === $b: ', (5 === $b) ? 'true' : 'false';
 echo "\n";
-echo '8 === $a: ', (8 === $a) ? 'true' : 'false'; 
+echo '8 === $a: ', (8 === $a) ? 'true' : 'false';
+?>
