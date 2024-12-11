@@ -5,7 +5,6 @@ declare(strict_types=1);
 - С помощью require_once подключите config.php 
 - Подключитесь к серверу MySQL, выберите базу данных
 - Установите кодировку по умолчанию для текущего соединения
-- 
 - Проверьте, была ли корректным образом отправлена форма
 - Если она была отправлена: отфильтруйте полученные данные 
   с помощью функций trim(), htmlspecialchars() и mysqli_real_escape_string(),
@@ -14,7 +13,7 @@ declare(strict_types=1);
   чтобы избавиться от информации, переданной через форму
 */
 require_once 'config.php'; 
-$connection = mysqli_connect(NAME, USER, PASSWORD,HOST, DB);
+$connection = mysqli_connect(DB_NAME, DB_USER, DB_PASSWORD,DB_HOST, DB_CHARSET);
 
 if (!$connection)
   die("Ошибка подключения: " . mysqli_connect_error());
