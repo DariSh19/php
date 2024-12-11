@@ -8,7 +8,7 @@ session_start();
 include('savepage.inc.php');
 ?>
 <!doctype html>
-<html>
+<html lang="ru">
 <head>
 	<meta charset="utf-8">
 	<title>Страница 1</title>

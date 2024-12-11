@@ -18,4 +18,4 @@ if (isset($_SESSION['visitedPages']) && count($_SESSION['visitedPages']) > 0) {
         echo "<li>$page</li>";
     echo "</ul>";
 } else
-    echo "<p>Вы пока не посетили ни одну страницу :(</p>";
+    echo "<p>Вы пока не посетили ни одну страницу</p>";
