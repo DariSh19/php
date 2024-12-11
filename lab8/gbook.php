@@ -12,19 +12,20 @@ declare(strict_types=1);
   После этого с помощью функции header() выполните перезапрос страницы, 
   чтобы избавиться от информации, переданной через форму
 */
-require_once 'config.php'; 
-$connection = mysqli_connect(DB_NAME, DB_USER, DB_PASSWORD,DB_HOST, DB_CHARSET);
+require_once 'config.php';
+$connection = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 if (!$connection)
   die("Ошибка подключения: " . mysqli_connect_error());
 
-mysqli_set_charset($connection, "utf8");
+mysqli_set_charset($connection, DB_CHARSET);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $name = trim(htmlspecialchars(mysqli_real_escape_string($connection, $_POST['name'] ?? '')));
   $email = trim(htmlspecialchars(mysqli_real_escape_string($connection, $_POST['email'] ?? '')));
   $msg = trim(htmlspecialchars(mysqli_real_escape_string($connection, $_POST['msg'] ?? '')));
 
+  // msgs insertion
   $query = "INSERT INTO msgs (name, email, msg) VALUES ('$name', '$email', '$msg')";
 
   if (mysqli_query($connection, $query)) {
@@ -34,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "Ошибка: " . mysqli_error($connection);
 }
 
+// del check
 if (isset($_GET['delete_id'])) {
 
   $delete_id = (int) $_GET['delete_id'];
