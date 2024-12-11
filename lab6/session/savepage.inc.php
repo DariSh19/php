@@ -1,8 +1,6 @@
 <?php
 declare(strict_types=1);
 // Код для всех страниц - сохранение информации о посещенных страницах
-
-
 /*
 ЗАДАНИЕ 1
 - Создайте в сессии либо 
@@ -13,7 +11,9 @@ declare(strict_types=1);
 if (!isset($_SESSION['visitedPages']))
 	$_SESSION['visitedPages'] = [];
 
+
+//$currentPage = basename($_SERVER['PHP_SELF']);
 $currentPage = $_SERVER['REQUEST_URI'];
 
+//if (!in_array($currentPage, $_SESSION['visitedPages']))
 $_SESSION['visitedPages'][] = $currentPage;
-?>
