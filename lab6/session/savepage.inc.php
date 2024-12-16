@@ -8,6 +8,7 @@ declare(strict_types=1);
 	- строку с уникальным разделителем и последовательно её дополняйте
 
 */
+
 if (!isset($_SESSION['visitedPages']))
 	$_SESSION['visitedPages'] = [];
 
