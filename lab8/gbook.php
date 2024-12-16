@@ -26,7 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $email = trim(htmlspecialchars(mysqli_real_escape_string($connection, $_POST['email'] ?? '')));
   $msg = trim(htmlspecialchars(mysqli_real_escape_string($connection, $_POST['msg'] ?? '')));
 
-  // msgs insertion
   $query = "INSERT INTO msgs (name, email, msg) VALUES ('$name', '$email', '$msg')";
 
   if (mysqli_query($connection, $query)) {
@@ -36,7 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "Ошибка: " . mysqli_error($connection);
 }
 
-// del check
 if (isset($_GET['delete_id'])) {
 
   $delete_id = (int) $_GET['delete_id'];
@@ -99,7 +97,6 @@ if (isset($_GET['delete_id'])) {
     записи. Информацию об идентификаторе удаляемого сообщения передавайте методом GET.
   */
 
-  // msgs query
   $query = "SELECT * FROM msgs ORDER BY id DESC";
   $result = mysqli_query($connection, $query);
 
